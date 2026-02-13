@@ -19,28 +19,28 @@ A simple command-line tool to upload Android App Bundles (`.aab`) to the Google 
 
 To use this tool, you need a Service Account JSON key. Follow these steps to generate one:
 
-1.  **Open Google Play Console**: Go to the [Google Play Console](https://play.google.com/console).
-2.  **Navigate to API Access**:
-    - In the left menu, go to **Setup** > **API access**.
-3.  **Create Service Account**:
-    - Click **Create new service account**.
-    - Follow the link to the **Google Cloud Console**.
-    - Click **Create Service Account**.
+1.  **Create Service Account in Google Cloud Console**:
+    - Go to the [Service Accounts page](https://console.cloud.google.com/iam-admin/serviceaccounts) in Google Cloud Console.
+    - Select your project (the one linked to your Google Play Console).
+    - Click **+ CREATE SERVICE ACCOUNT**.
     - Provide a name (e.g., `play-cli-uploader`).
     - Click **Create and Continue**.
     - **Important**: Assign the **Service Account User** role (or just continue, as specific permissions are managed in Play Console).
     - Click **Done**.
-4.  **Generate Key**:
-    - In the Google Cloud Console, click on the newly created service account email.
+
+2.  **Generate Key**:
+    - In the Service Accounts list, click on the newly created service account email.
     - Go to the **Keys** tab.
     - Click **Add Key** > **Create new key**.
     - Select **JSON** and click **Create**.
     - Save the downloaded JSON file safely (e.g., `secrets/service-account.json`).
-5.  **Grant Access in Play Console**:
-    - Go back to the **Google Play Console** > **Setup** > **API access**.
-    - Find the new service account in the list and click **Grant access**.
-    - In the permissions page, go to the **App permissions** tab.
-    - Select the target app.
+
+3.  **Grant Access in Play Console**:
+    - Go to the [Google Play Console](https://play.google.com/console).
+    - Navigate to **Setup** > **API access** (ensure you are in the "All apps" view, not a specific app).
+      - _Direct Link_: [https://play.google.com/console/u/0/developers/api-access](https://play.google.com/console/u/0/developers/api-access)
+    - Click **Invite new user**.
+    - Paste the service account email address (from step 1) into the **Email address** field.
     - In the **Account permissions** tab, ensure **Releases** > **Release to production, exclude devices, and use Play App Signing** (and any other relevant track permissions) are checked.
     - Click **Invite user** to finish.
 
