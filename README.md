@@ -15,6 +15,35 @@ A simple command-line tool to upload Android App Bundles (`.aab`) to the Google 
 - A Google Play Developer Configuration with API access enabled.
 - A Service Account with appropriate permissions and its JSON key file.
 
+## Setup & Authentication
+
+To use this tool, you need a Service Account JSON key. Follow these steps to generate one:
+
+1.  **Open Google Play Console**: Go to the [Google Play Console](https://play.google.com/console).
+2.  **Navigate to API Access**:
+    - In the left menu, go to **Setup** > **API access**.
+3.  **Create Service Account**:
+    - Click **Create new service account**.
+    - Follow the link to the **Google Cloud Console**.
+    - Click **Create Service Account**.
+    - Provide a name (e.g., `play-cli-uploader`).
+    - Click **Create and Continue**.
+    - **Important**: Assign the **Service Account User** role (or just continue, as specific permissions are managed in Play Console).
+    - Click **Done**.
+4.  **Generate Key**:
+    - In the Google Cloud Console, click on the newly created service account email.
+    - Go to the **Keys** tab.
+    - Click **Add Key** > **Create new key**.
+    - Select **JSON** and click **Create**.
+    - Save the downloaded JSON file safely (e.g., `secrets/service-account.json`).
+5.  **Grant Access in Play Console**:
+    - Go back to the **Google Play Console** > **Setup** > **API access**.
+    - Find the new service account in the list and click **Grant access**.
+    - In the permissions page, go to the **App permissions** tab.
+    - Select the target app.
+    - In the **Account permissions** tab, ensure **Releases** > **Release to production, exclude devices, and use Play App Signing** (and any other relevant track permissions) are checked.
+    - Click **Invite user** to finish.
+
 ## Installation
 
 1.  Clone the repository.
