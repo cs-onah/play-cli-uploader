@@ -21,7 +21,7 @@ To use this tool, you need a Service Account JSON key. Follow these steps to gen
 
 1.  **Create Service Account in Google Cloud Console**:
     - Go to the [Service Accounts page](https://console.cloud.google.com/iam-admin/serviceaccounts) in Google Cloud Console.
-    - Select your project (the one linked to your Google Play Console).
+    - Select your project (the project linked to your app).
     - Click **+ CREATE SERVICE ACCOUNT**.
     - Provide a name (e.g., `play-cli-uploader`).
     - Click **Create and Continue**.
@@ -35,14 +35,19 @@ To use this tool, you need a Service Account JSON key. Follow these steps to gen
     - Select **JSON** and click **Create**.
     - Save the downloaded JSON file safely (e.g., `secrets/service-account.json`).
 
-3.  **Grant Access in Play Console**:
-    - Go to the [Google Play Console](https://play.google.com/console).
-    - Navigate to **Setup** > **API access** (ensure you are in the "All apps" view, not a specific app).
-      - _Direct Link_: [https://play.google.com/console/u/0/developers/api-access](https://play.google.com/console/u/0/developers/api-access)
+3.  **Enable Google Play Developer API**
+    - Go to the [Google Cloud Console](https://console.cloud.google.com/apis/api/androidpublisher.googleapis.com/overview).
+    - Click **Enable**.
+
+4.  **Grant Access in Play Console**:
+    - Go to the [Google Play Console](https://play.google.com/console/u/0/developers/8224784224104302253/users-and-permissions) users and permissions page.
     - Click **Invite new user**.
     - Paste the service account email address (from step 1) into the **Email address** field.
     - In the **Account permissions** tab, ensure **Releases** > **Release to production, exclude devices, and use Play App Signing** (and any other relevant track permissions) are checked.
     - Click **Invite user** to finish.
+
+5.  **Done**:
+    - You are now set to use the cli tool.
 
 ## Installation
 
