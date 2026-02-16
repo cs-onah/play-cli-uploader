@@ -63,7 +63,7 @@ export const uploadBuild = async (options: UploadOptions) => {
         releases: [
           {
             versionCodes: [versionCode.toString()],
-            status: 'completed', // or 'draft' ? Usually completed for immediate release to the track
+            status: 'draft', // ['completed' | 'draft']
           },
         ],
       },
